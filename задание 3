@@ -1,0 +1,21 @@
+class Money
+
+public int Rub {get; set;}
+public int Kop { get; set; }
+public Money(int rub, int kop) { Rub= rub; Kop = kop; }
+public static Money operator +(Money a, Money b)
+var res1=(a. Kop + b. Kop) % 100;
+var res2 =(a. Rub + b.Rub) + (a. Kop + b.Kop) / 100;
+return new Money (res2, res1);
+
+public static bool operator == (Money a, Money b) { return a. Rub == b.Rub && a. Kop == b.Kop; }
+public static bool operator!= (Money a, Money b) {return I a == b); }
+public override string ToString()
+{Console. WriteLine($" {Rub}рyб (Кор}коп");
+return null;}
+internal class Program
+static void Main(string[] args)
+var a = new Money(10, 50);
+var b = new Money(5, 75);
+Console.WriteLine(a+b);
+Console.WriteLine(a new Money(10, 50));
