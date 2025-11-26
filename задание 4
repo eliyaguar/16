@@ -1,1 +1,34 @@
+  class Vector
+    {
+        private double[] v;
+        public Vector(params double[] value ) { v = value; }
+        public double this[int index]{ get {  return v[index]; } set { v[index] = value; } } 
 
+        public static double operator *(Vector a, Vector b)
+        {
+            double resultat = 0;
+            for (int i = 0; i < a.v.Length; i++)
+            {
+                resultat += a.v[i] * b.v[i];
+            }
+            return resultat;
+        }
+        public override string ToString()
+        {
+            return "["+ string.Join(",", v)+ "]" ;
+        }
+    }
+
+
+    internal class Program 
+    {
+        static void Main()
+        {
+            var a = new Vector(1,2,3);
+            var b = new Vector(4,5,6);
+            Console.WriteLine(a * b);
+            a[1] = 10;
+            Console.WriteLine(b);
+            Console.WriteLine(a);
+        }
+    }
